@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block title %}Task Detail{% endblock %}
+
+{% block content %}
+
+<main class="container">
+    <div class="row">
+
+        <div class="col-md-4 offset-md-4">
+            <h1 class="text-center text-secondary fw-bold">{{ task.title }}</h1>
+
+            {% if error %}
+            <div class="alert alert-danger" role="alert">
+                {{ error}}
+            </div>
+            {% endif %}
+
+            <form method="POST">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <!-- {{ form }} -->
+                <button class="btn btn-primary">
+                    Editar
+                </button>
+            </form>
+
+            <div class="d-flex mt-4">
+                <form action="{% url 'complete_task' task.id %}" method="POST">
+                    {% csrf_token %}
+
+                    <button class="btn btn-success me-3">
+                        Finalizar
+                    </button>
+                </form>
+
+                <form action="{% url 'delete_task' task.id %}" method="POST">
+                    {% csrf_token %}
+
+                    <button class="btn btn-danger">
+                        Eliminar
+                    </button>
+                </form>
+
+            </div>
+
+        </div>
+    </div>
+</main>
+
+
+{% endblock %}
