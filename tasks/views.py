@@ -16,19 +16,6 @@ from .models import Task
 #from django.http import HttpResponse -> Util para comenzar
 
 
-"""
-Super_Usuario: Rodrigo87
-password: Russo917
-email: rodrigo@rodrigo.com
---------------------------
-pedrito89
-rruso8585
---------------------------
-ramon87
-rruso8787
-"""
-
-
 # Create your views here.
 
 def home(request):
